@@ -16,20 +16,14 @@ clock.tick(60)
 # Fontes
 fonte1 = pygame.font.SysFont('arial', 24, True)
 
+
+turno = 0
 # Looping principal
 running = True
 while running:
 
     # Cor do fundo
     tela.fill((255, 255, 255))
-
-    # Botão de fechar
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-
-    # Proximo Turno
-        if event.type == 
 
     # Palavras Selecionadas:
     cabeçalho = fonte1.render(modulo.cabeçalho, True, (0,0,0))
@@ -44,14 +38,36 @@ while running:
     tela.blit(linha3, (20, 250))
     tela.blit(linha4, (20, 300))
     tela.blit(linha5, (20, 350))
-    
 
+    # Botão de fechar
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
 
-    # for c in range(5,10):
-    #     fonte1.render(modulo.escolhidas[c], True, (0,0,0))
-    #     tela.blit(texto, (500, y))
-    #     y+=75
-    
+    # Proximo Turno
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_a:
+                tela.fill((255, 255, 255))
+                pygame.display.update()
+                tela.fill((0,0,0))
+                pygame.display.update()
+                tela.fill((100,0,0))
+                pygame.display.update()
+                tela.fill((0,100,0))
+                pygame.display.update()
+                tela.fill((0,0,100))
+                pygame.display.update()
+                tela.fill((100,100,100))
+                pygame.display.update()
+                tela.fill((255, 255, 255))
+                while True:
+                    coordenada = fonte1.render(modulo.coordenadas[turno], True, (0,0,0))
+                    tela.blit(coordenada, (300,300))
+                    pygame.display.update()
+                    input()
+                    break
+                turno += 1
+
     # Atualiza tela
     pygame.display.update()
 

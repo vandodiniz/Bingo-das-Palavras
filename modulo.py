@@ -27,8 +27,14 @@ print(coordenadas)
 
 # FONTE
 cabeçalho = f'{escolhidas[0].center(20)}{escolhidas[1].center(20)}{escolhidas[2].center(20)}{escolhidas[3].center(20)}{escolhidas[4].center(20)}'
-linha1 = f'''{''.center(150)}{escolhidas[5].ljust(20)}'''
-linha2 = f'''{''.center(150)}{escolhidas[6].ljust(20)}'''
-linha3 = f'''{''.center(150)}{escolhidas[7].ljust(20)}'''
-linha4 = f'''{''.center(150)}{escolhidas[8].ljust(20)}'''
-linha5 = f'''{''.center(150)}{escolhidas[9].ljust(20)}'''
+print(cabeçalho)
+linha1 = f'''{''.center(150)}{escolhidas[5].ljust(20)}1'''
+linha2 = f'''{''.center(150)}{escolhidas[6].ljust(20)}2'''
+linha3 = f'''{''.center(150)}{escolhidas[7].ljust(20)}3'''
+linha4 = f'''{''.center(150)}{escolhidas[8].ljust(20)}4'''
+linha5 = f'''{''.center(150)}{escolhidas[9].ljust(20)}5'''
+print(linha1)
+print(linha2)
+print(linha3)
+print(linha4)
+print(linha5)
