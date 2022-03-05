@@ -20,13 +20,16 @@ fonte1 = pygame.font.SysFont('arial', 24, True)
 running = True
 while running:
 
+    # Cor do fundo
+    tela.fill((255, 255, 255))
+
     # Botão de fechar
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # Cor do fundo
-    tela.fill((255, 255, 255))
+    # Proximo Turno
+        if event.type == 
 
     # Palavras Selecionadas:
     cabeçalho = fonte1.render(modulo.cabeçalho, True, (0,0,0))
