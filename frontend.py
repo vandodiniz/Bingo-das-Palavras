@@ -1,29 +1,25 @@
-# Simple pygame program
-
-# Import and initialize the pygame library
+# Imports
 import pygame
 pygame.init()
 
-# Set up the drawing window
-screen = pygame.display.set_mode([1080, 768])
+# Tela
+largura = 600
+altura = 800
+screen = pygame.display.set_mode([altura, largura])
 
-# Run until the user asks to quit
+# Looping principal
 running = True
 while running:
 
-    # Did the user click the window close button?
+    # Botão de fechar
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
 
-    # Fill the background with white
+    # Cor do fundo
     screen.fill((255, 255, 255))
 
-    # Draw a solid blue circle in the center
-    pygame.draw.circle(screen, (0, 0, 255), (250, 250), 75)
-
-    # Flip the display
+    # Atualiza tela
     pygame.display.flip()
 
-# Done! Time to quit.
 pygame.quit()
