@@ -1,7 +1,8 @@
 # Imports e Loads
 import pygame
 pygame.init()
-import modulo
+import backend
+import modulo as md
 
 # Tela
 largura = 1000
@@ -26,12 +27,12 @@ while running:
     tela.fill((255, 255, 255))
 
     # Palavras Selecionadas:
-    cabeçalho = fonte1.render(modulo.cabeçalho, True, (0,0,0))
-    linha1 = fonte1.render(modulo.linha1, True, (0,0,0))
-    linha2 = fonte1.render(modulo.linha2, True, (0,0,0))
-    linha3 = fonte1.render(modulo.linha3, True, (0,0,0))
-    linha4 = fonte1.render(modulo.linha4, True, (0,0,0))
-    linha5 = fonte1.render(modulo.linha5, True, (0,0,0))
+    cabeçalho = fonte1.render(backend.cabeçalho, True, (0,0,0))
+    linha1 = fonte1.render(backend.linha1, True, (0,0,0))
+    linha2 = fonte1.render(backend.linha2, True, (0,0,0))
+    linha3 = fonte1.render(backend.linha3, True, (0,0,0))
+    linha4 = fonte1.render(backend.linha4, True, (0,0,0))
+    linha5 = fonte1.render(backend.linha5, True, (0,0,0))
     tela.blit(cabeçalho, (20, 100))
     tela.blit(linha1, (20, 150))
     tela.blit(linha2, (20, 200))
@@ -46,26 +47,8 @@ while running:
 
     # Proximo Turno
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_a:
-                tela.fill((255, 255, 255))
-                pygame.display.update()
-                tela.fill((0,0,0))
-                pygame.display.update()
-                tela.fill((100,0,0))
-                pygame.display.update()
-                tela.fill((0,100,0))
-                pygame.display.update()
-                tela.fill((0,0,100))
-                pygame.display.update()
-                tela.fill((100,100,100))
-                pygame.display.update()
-                tela.fill((255, 255, 255))
-                while True:
-                    coordenada = fonte1.render(modulo.coordenadas[turno], True, (0,0,0))
-                    tela.blit(coordenada, (300,300))
-                    pygame.display.update()
-                    input()
-                    break
+            if event.key == pygame.K_SPACE:
+                md.proximo_turno()
                 turno += 1
 
     # Atualiza tela
