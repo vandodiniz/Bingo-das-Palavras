@@ -2,8 +2,28 @@
 import pygame
 pygame.init()
 import backend
-import modulo as md
 
+############################################## FUNÇÕES ###################################################################
+def proximo_turno():
+    tela.fill((255, 255, 255))
+    coordenada = fonte1.render(backend.coordenadas[turno], True, (0,0,0))
+    tela.blit(coordenada, (300,300))
+    pygame.display.update()
+    
+    turno_on = True
+    while turno_on:
+        # Botão de fechar
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+                exit()
+
+            # Terminar turno
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    turno_on = False
+
+############################################## ESPECIFICAÇÕES ###################################################################
 # Tela
 largura = 1000
 altura = 600
@@ -18,8 +38,8 @@ clock.tick(60)
 fonte1 = pygame.font.SysFont('arial', 24, True)
 
 
+############################################## LOOPING PRINCIPAL ###################################################################
 turno = 0
-# Looping principal
 running = True
 while running:
 
@@ -48,7 +68,7 @@ while running:
     # Proximo Turno
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE:
-                md.proximo_turno()
+                proximo_turno()
                 turno += 1
 
     # Atualiza tela
