@@ -1,7 +1,7 @@
 # Imports e Loads
-import pygame
-pygame.init()
 import funcoes
+import cfg
+import button 
 
 ############################################## BANCO DE PALAVRAS ###################################################################
 
@@ -14,15 +14,6 @@ objetos = ['Calculadora', 'Mesa', 'Sofá', 'Computador', 'TV', 'Geladeira', 'Cel
 extras = ['Estrela', 'Basquete', 'Futebol', 'LOL', 'Guerra', 'Nação', 'Médico', 'Xadrez', 'Livro']
 listas = [lugares, animais, comidas, objetos, extras]
 
-
-############################################## ESPECIFICAÇÕES ###################################################################
-# Tela
-largura = 1000
-altura = 600
-tela = pygame.display.set_mode([largura, altura])
-pygame.display.set_caption('Palavra-Minada')
-
-
 ############################################## LOOPING PRINCIPAL ###################################################################
 funcoes.sorteador(escolhidas, coordenadas, listas)
 turno = 0
@@ -30,25 +21,39 @@ score = 0
 running = True
 while running:
 
-    funcoes.base_do_jogo(escolhidas, tela) 
+    # Desenha tabuleiro
+    funcoes.base_do_jogo(escolhidas, cfg.tela) 
     
-    # Botão de fechar
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    # Sobreposições dos botões
+    for botao in button.botoes:
+        if botao.hitbox.collidepoint(cfg.pygame.mouse.get_pos()):
+            cfg.pygame.draw.rect(cfg.tela, (0,0,255), ( botao.pos[0], botao.pos[1],165,80), 3)
+            cfg.pygame.display.flip()
+
+   
+    for event in cfg.pygame.event.get():
+
+        # Botão de fechar
+        if event.type == cfg.pygame.QUIT:
             running = False
 
-    # Proximo Turno
-        if event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                funcoes.proximo_turno(coordenadas, turno, tela)
+        # Proximo Turno
+        if event.type == cfg.pygame.KEYDOWN:
+            if event.key == cfg.pygame.K_SPACE:
+                	
+                funcoes.proximo_turno(coordenadas, turno, cfg.tela)
                 turno += 1
 
+        
+
+
+
     # Atualiza tela
-    pygame.display.flip()
+    cfg.pygame.display.flip()
 
     # Fim do jogo e Pontuação
     if turno == 25:
         print('FIM')
         running = False
 
-pygame.quit()
+cfg.pygame.quit()
