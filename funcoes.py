@@ -43,21 +43,21 @@ def sorteador(escolhidas, coordenadas, listas):
 def proximo_turno(coordenadas, turno, tela):
     tela.fill((255, 255, 255))
     
-    tela.blit(cfg.timer3, (0, 0))
-    cfg.pygame.display.flip() 
-    time.sleep(1)
+    # tela.blit(cfg.timer3, (0, 0))
+    # cfg.pygame.display.flip() 
+    # time.sleep(1)
 
-    tela.blit(cfg.timer2, (0, 0))
-    cfg.pygame.display.flip()
-    time.sleep(1)
+    # tela.blit(cfg.timer2, (0, 0))
+    # cfg.pygame.display.flip()
+    # time.sleep(1)
 
-    tela.blit(cfg.timer1, (0, 0))
-    cfg.pygame.display.flip()
-    time.sleep(1)
+    # tela.blit(cfg.timer1, (0, 0))
+    # cfg.pygame.display.flip()
+    # time.sleep(1)
 
     tela.blit(cfg.imagem_coordenada, (0, 0))
-    coordenada = cfg.fonte1.render(coordenadas[turno], True, (0,0,0))
-    tela.blit(coordenada, (600,400))
+    coordenada = cfg.fonte2.render(coordenadas[turno], True, (0,0,0))
+    tela.blit(coordenada, (475,350))
     cfg.pygame.display.flip()
     
     turno_on = True

@@ -24,6 +24,11 @@ sobreposicao = False
 
 while running:         
     
+    # Fim do jogo e Pontuação
+    if turno > 25:
+        print('FIM')
+        break
+
     # Lista de eventos
     for event in cfg.pygame.event.get():
 
@@ -65,10 +70,5 @@ while running:
             cfg.pygame.draw.rect(cfg.tela, (0,0,255), ( botao.pos[0], botao.pos[1],165,80), 3)
 
     cfg.pygame.display.flip()
-    
-    # Fim do jogo e Pontuação
-    if turno > 25:
-        print('FIM')
-        running = False
 
 cfg.pygame.quit()

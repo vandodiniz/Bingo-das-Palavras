@@ -14,6 +14,7 @@ clock.tick(60)
 
 # Fontes
 fonte1 = pygame.font.SysFont('arial', 24, True)
+fonte2 = pygame.font.SysFont('arial', 100, True)
 
 # Imagens 
 image1 = pygame.image.load('imagens/base.jpg').convert()
