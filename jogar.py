@@ -25,7 +25,7 @@ while running:
             if event.key == cfg.pygame.K_SPACE:
 
                 # Fim do jogo e Pontuação
-                if controle.turno == 1:
+                if controle.turno == 25:
                     funcoes.fim_do_jogo()
 
                 else:

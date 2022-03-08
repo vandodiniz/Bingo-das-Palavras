@@ -82,21 +82,34 @@ def proximo_turno():
 def reiniciar_jogo():
     sorteador()
     controle.turno = 0
-    controle.score = 0
     for botao in button.botoes:
         botao.cliques = 0
 
 def fim_do_jogo():
 
+    score = 0
     for botao in button.botoes:
         if botao.cliques == 1:
-            controle.score += 1
+            score += 1
+
 
     cfg.tela.fill((255,255,255))
-    mensagem = f'Parabéns, sua pontuação foi de {controle.score}/25'
+    mensagem = f'Parabéns, sua pontuação foi de {score}/25'
     mensagem_formatada = cfg.fonte3.render(mensagem, True, (0,0,0))
     ret_msg = mensagem_formatada.get_rect()
     ret_msg.center = (cfg.largura/2,cfg.altura/2)
+    cfg.tela.blit(mensagem_formatada, ret_msg)
+
+    mensagem = f'Aperte ESPAÇO para fechar o jogo'
+    mensagem_formatada = cfg.fonte4.render(mensagem, True, (0,0,0))
+    ret_msg = mensagem_formatada.get_rect()
+    ret_msg.center = (cfg.largura/2,600)
+    cfg.tela.blit(mensagem_formatada, ret_msg)
+
+    mensagem = f'Aperte R para reiniciar o jogo'
+    mensagem_formatada = cfg.fonte4.render(mensagem, True, (0,0,0))
+    ret_msg = mensagem_formatada.get_rect()
+    ret_msg.center = (cfg.largura/2,650)
     cfg.tela.blit(mensagem_formatada, ret_msg)
 
     cfg.pygame.display.flip()
