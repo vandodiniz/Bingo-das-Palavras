@@ -5,12 +5,23 @@ class Button:
         self.cliques = 0
         self.pos = pos
         self.hitbox = cfg.pygame.draw.rect(cfg.tela, (0, 0, 0), (pos[0],pos[1],165,80))
-
     
     def trigger(self):
         self.cliques+=1
-        if self.cliques > 3:
+        if self.cliques > 2:
             self.cliques = 0
+
+    def draw(self):
+        if self.cliques == 0:
+            cfg.pygame.draw.rect(cfg.tela, (255, 255, 255), (self.pos[0], self.pos[1],165,80))
+        
+        elif self.cliques == 1:
+            cfg.pygame.draw.rect(cfg.tela, (0, 255, 0), (self.pos[0], self.pos[1],165,80))
+            
+        elif self.cliques == 2:
+            cfg.pygame.draw.rect(cfg.tela, (255, 0, 0), (self.pos[0], self.pos[1],165,80))
+            
+        
 
 botao1 = Button((45,120))
 botao2 = Button((213,120))

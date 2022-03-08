@@ -1,5 +1,6 @@
 import random as rd
 import cfg
+import button
 
 ############################################## FUNÇÕES ###################################################################
 
@@ -59,3 +60,7 @@ def proximo_turno(coordenadas, turno, tela):
                 if event.key == cfg.pygame.K_SPACE:
                     turno_on = False
             
+def reiniciar_jogo(escolhidas, coordenadas, listas):
+    sorteador(escolhidas, coordenadas, listas)
+    for botao in button.botoes:
+        botao.cliques = 0

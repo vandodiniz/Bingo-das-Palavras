@@ -19,40 +19,57 @@ funcoes.sorteador(escolhidas, coordenadas, listas)
 turno = 0
 score = 0
 running = True
-while running:
+sobreposicao = False
 
-    # Desenha tabuleiro
-    funcoes.base_do_jogo(escolhidas, cfg.tela) 
-    
-    # Sobreposições dos botões
-    for botao in button.botoes:
-        if botao.hitbox.collidepoint(cfg.pygame.mouse.get_pos()):
-            cfg.pygame.draw.rect(cfg.tela, (0,0,255), ( botao.pos[0], botao.pos[1],165,80), 3)
-            cfg.pygame.display.flip()
+# Desenha tabuleiro
+funcoes.base_do_jogo(escolhidas, cfg.tela)
 
-   
+while running:         
+
+    # Lista de eventos
     for event in cfg.pygame.event.get():
 
         # Botão de fechar
         if event.type == cfg.pygame.QUIT:
             running = False
 
-        # Proximo Turno
+        
         if event.type == cfg.pygame.KEYDOWN:
+            # Proximo Turno
             if event.key == cfg.pygame.K_SPACE:
-                	
                 funcoes.proximo_turno(coordenadas, turno, cfg.tela)
                 turno += 1
-
         
+            # Reiniciar Game
+            if event.key == cfg.pygame.K_r:
+                turno = 0
+                funcoes.reiniciar_jogo(escolhidas, coordenadas, listas)
+            
+        # Clique no Botão
+        for botao in button.botoes:
+            if botao.hitbox.collidepoint(cfg.pygame.mouse.get_pos()):
 
+                if event.type == cfg.pygame.MOUSEBUTTONDOWN:
+                    mouse_presses = cfg.pygame.mouse.get_pressed()
+                    if mouse_presses[0]:
+                        botao.trigger()
+            
+            else: 
+                sobreposicao = False
 
+    # Desenha estado dos botões 
+    for botao in button.botoes:
+        botao.draw()
 
-    # Atualiza tela
+    # Desenha a sobreposição
+    for botao in button.botoes:
+        if botao.hitbox.collidepoint(cfg.pygame.mouse.get_pos()):
+            cfg.pygame.draw.rect(cfg.tela, (0,0,255), ( botao.pos[0], botao.pos[1],165,80), 3)
+
     cfg.pygame.display.flip()
-
+    
     # Fim do jogo e Pontuação
-    if turno == 25:
+    if turno > 25:
         print('FIM')
         running = False
 
