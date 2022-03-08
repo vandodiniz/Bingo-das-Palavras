@@ -1,12 +1,13 @@
 import random as rd
 import cfg
 import button
+import time
 
 ############################################## FUNÇÕES ###################################################################
 
 
 def base_do_jogo(escolhidas, tela):
-    tela.blit(cfg.image, (0, 0))
+    tela.blit(cfg.image1, (0, 0))
     escolhida1 = cfg.fonte1.render(escolhidas[0], True, (0,0,0))
     escolhida2 = cfg.fonte1.render(escolhidas[1], True, (0,0,0))
     escolhida3 = cfg.fonte1.render(escolhidas[2], True, (0,0,0))
@@ -17,16 +18,16 @@ def base_do_jogo(escolhidas, tela):
     escolhida8 = cfg.fonte1.render(escolhidas[7], True, (0,0,0))
     escolhida9 = cfg.fonte1.render(escolhidas[8], True, (0,0,0))
     escolhida10 = cfg.fonte1.render(escolhidas[9], True, (0,0,0))
-    tela.blit(escolhida1, (60, 80))
-    tela.blit(escolhida2, (230, 80))
-    tela.blit(escolhida3, (400, 80))
-    tela.blit(escolhida4, (570, 80))
-    tela.blit(escolhida5, (725, 80))
-    tela.blit(escolhida6, (885, 150))
-    tela.blit(escolhida7, (885, 235))
-    tela.blit(escolhida8, (885, 315))
-    tela.blit(escolhida9, (885, 405))
-    tela.blit(escolhida10, (885, 490))
+    tela.blit(escolhida1, (68, 80))
+    tela.blit(escolhida2, (238, 80))
+    tela.blit(escolhida3, (408, 80))
+    tela.blit(escolhida4, (578, 80))
+    tela.blit(escolhida5, (740, 80))
+    tela.blit(escolhida6, (905, 150))
+    tela.blit(escolhida7, (905, 235))
+    tela.blit(escolhida8, (905, 320))
+    tela.blit(escolhida9, (905, 410))
+    tela.blit(escolhida10, (905, 495))
 
 def sorteador(escolhidas, coordenadas, listas):
     escolhidas.clear()
@@ -41,8 +42,22 @@ def sorteador(escolhidas, coordenadas, listas):
 
 def proximo_turno(coordenadas, turno, tela):
     tela.fill((255, 255, 255))
+    
+    tela.blit(cfg.timer3, (0, 0))
+    cfg.pygame.display.flip() 
+    time.sleep(1)
+
+    tela.blit(cfg.timer2, (0, 0))
+    cfg.pygame.display.flip()
+    time.sleep(1)
+
+    tela.blit(cfg.timer1, (0, 0))
+    cfg.pygame.display.flip()
+    time.sleep(1)
+
+    tela.blit(cfg.imagem_coordenada, (0, 0))
     coordenada = cfg.fonte1.render(coordenadas[turno], True, (0,0,0))
-    tela.blit(coordenada, (300,300))
+    tela.blit(coordenada, (600,400))
     cfg.pygame.display.flip()
     
     turno_on = True

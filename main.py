@@ -21,8 +21,6 @@ score = 0
 running = True
 sobreposicao = False
 
-# Desenha tabuleiro
-funcoes.base_do_jogo(escolhidas, cfg.tela)
 
 while running:         
     
@@ -53,7 +51,10 @@ while running:
                     mouse_presses = cfg.pygame.mouse.get_pressed()
                     if mouse_presses[0]:
                         botao.trigger()
-            
+    
+    # Desenha tabuleiro
+    funcoes.base_do_jogo(escolhidas, cfg.tela)
+
     # Desenha estado dos botões 
     for botao in button.botoes:
         botao.draw()
