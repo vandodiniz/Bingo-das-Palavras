@@ -37,28 +37,39 @@ clock.tick(60)
 # Fontes
 fonte1 = pygame.font.SysFont('arial', 24, True)
 
+# Imagens 
+image = pygame.image.load('imagens/base.jpg')
+
 
 ############################################## LOOPING PRINCIPAL ###################################################################
 turno = 0
+score = 0
 running = True
 while running:
 
-    # Cor do fundo
-    tela.fill((255, 255, 255))
-
     # Palavras Selecionadas:
-    cabeçalho = fonte1.render(backend.cabeçalho, True, (0,0,0))
-    linha1 = fonte1.render(backend.linha1, True, (0,0,0))
-    linha2 = fonte1.render(backend.linha2, True, (0,0,0))
-    linha3 = fonte1.render(backend.linha3, True, (0,0,0))
-    linha4 = fonte1.render(backend.linha4, True, (0,0,0))
-    linha5 = fonte1.render(backend.linha5, True, (0,0,0))
-    tela.blit(cabeçalho, (20, 100))
-    tela.blit(linha1, (20, 150))
-    tela.blit(linha2, (20, 200))
-    tela.blit(linha3, (20, 250))
-    tela.blit(linha4, (20, 300))
-    tela.blit(linha5, (20, 350))
+    tela.blit(image, (0, 0))
+    escolhida1 = fonte1.render(backend.escolhidas[0], True, (0,0,0))
+    escolhida2 = fonte1.render(backend.escolhidas[1], True, (0,0,0))
+    escolhida3 = fonte1.render(backend.escolhidas[2], True, (0,0,0))
+    escolhida4 = fonte1.render(backend.escolhidas[3], True, (0,0,0))
+    escolhida5 = fonte1.render(backend.escolhidas[4], True, (0,0,0))
+    escolhida6 = fonte1.render(backend.escolhidas[5], True, (0,0,0))
+    escolhida7 = fonte1.render(backend.escolhidas[6], True, (0,0,0))
+    escolhida8 = fonte1.render(backend.escolhidas[7], True, (0,0,0))
+    escolhida9 = fonte1.render(backend.escolhidas[8], True, (0,0,0))
+    escolhida10 = fonte1.render(backend.escolhidas[9], True, (0,0,0))
+    tela.blit(escolhida1, (60, 80))
+    tela.blit(escolhida2, (230, 80))
+    tela.blit(escolhida3, (400, 80))
+    tela.blit(escolhida4, (570, 80))
+    tela.blit(escolhida5, (725, 80))
+    tela.blit(escolhida6, (885, 150))
+    tela.blit(escolhida7, (885, 235))
+    tela.blit(escolhida8, (885, 315))
+    tela.blit(escolhida9, (885, 405))
+    tela.blit(escolhida10, (885, 490))
+
 
     # Botão de fechar
     for event in pygame.event.get():
@@ -73,5 +84,10 @@ while running:
 
     # Atualiza tela
     pygame.display.update()
+
+    # Fim do jogo e Pontuação
+    if turno == 25:
+        print('FIM')
+        running = False
 
 pygame.quit()
