@@ -25,7 +25,7 @@ sobreposicao = False
 funcoes.base_do_jogo(escolhidas, cfg.tela)
 
 while running:         
-
+    
     # Lista de eventos
     for event in cfg.pygame.event.get():
 
@@ -33,8 +33,9 @@ while running:
         if event.type == cfg.pygame.QUIT:
             running = False
 
-        
+        # Botões do Teclado
         if event.type == cfg.pygame.KEYDOWN:
+
             # Proximo Turno
             if event.key == cfg.pygame.K_SPACE:
                 funcoes.proximo_turno(coordenadas, turno, cfg.tela)
@@ -45,18 +46,14 @@ while running:
                 turno = 0
                 funcoes.reiniciar_jogo(escolhidas, coordenadas, listas)
             
-        # Clique no Botão
+        # Clique do Mouse
         for botao in button.botoes:
             if botao.hitbox.collidepoint(cfg.pygame.mouse.get_pos()):
-
                 if event.type == cfg.pygame.MOUSEBUTTONDOWN:
                     mouse_presses = cfg.pygame.mouse.get_pressed()
                     if mouse_presses[0]:
                         botao.trigger()
             
-            else: 
-                sobreposicao = False
-
     # Desenha estado dos botões 
     for botao in button.botoes:
         botao.draw()
