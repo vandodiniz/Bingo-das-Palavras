@@ -6,7 +6,7 @@ pygame.init()
 largura = 1100
 altura = 700
 tela = pygame.display.set_mode([largura, altura])
-pygame.display.set_caption('Palavra-Minada') 
+pygame.display.set_caption('Bingo das Palavras') 
 
 # Clock
 clock = pygame.time.Clock()
@@ -25,6 +25,3 @@ timer2 = pygame.image.load('imagens/timer2.jpg').convert()
 timer3 = pygame.image.load('imagens/timer3.jpg').convert()
 imagem_coordenada = pygame.image.load('imagens/coordenada.jpg').convert()
 
-# Musicas
-musica_de_fundo = pygame.mixer.music.load('sons/musica.mp3')
-pygame.mixer.music.load(-1)
