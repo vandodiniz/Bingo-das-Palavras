@@ -25,4 +25,6 @@ timer2 = pygame.image.load('imagens/timer2.jpg').convert()
 timer3 = pygame.image.load('imagens/timer3.jpg').convert()
 imagem_coordenada = pygame.image.load('imagens/coordenada.jpg').convert()
 
-print(pygame.font.get_fonts())
+# Musicas
+musica_de_fundo = pygame.mixer.music.load('sons/musica.mp3')
+pygame.mixer.music.load(-1)
