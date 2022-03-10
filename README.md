@@ -14,8 +14,8 @@ Foi implementado de forma a ter uma forte interação com o usuário através do
 * Resetar o jogo;
 * Sair do jogo;
 
-### Ano de implementação
-2022
+### Dataa de implementação
+Março de 2022
 
 ### Responsável
 Vando Carlos Diniz Reis
