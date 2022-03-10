@@ -18,7 +18,6 @@ O seguinte tabuleiro irá aparecer em sua tela:
 - Cada botão do tabuleiro interage com seu mouse. Um clique nele o colore de verde, demonstrando um acerto. Dois cliques o colore de vermelho, demonstrando um erro. Três cliques o fazem voltar pro estado inicial.
 - A tecla R reinicia o jogo. Novas palavras são colocadas no tabuleiro e todos os botões voltam para o estado inicial.
 
----
 ### Exemplo de turno:
 Coordenada do turno: E4 - (Pão e Banana)
 
