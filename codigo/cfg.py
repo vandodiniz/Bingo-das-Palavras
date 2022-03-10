@@ -19,9 +19,9 @@ fonte3 = pygame.font.SysFont('agencyfb', 50, True)
 fonte4 = pygame.font.SysFont('agencyfb', 30, True)
 
 # Imagens 
-image1 = pygame.image.load('imagens/base.jpg').convert()
-timer1 = pygame.image.load('imagens/timer1.jpg').convert()
-timer2 = pygame.image.load('imagens/timer2.jpg').convert()
-timer3 = pygame.image.load('imagens/timer3.jpg').convert()
-imagem_coordenada = pygame.image.load('imagens/coordenada.jpg').convert()
+image1 = pygame.image.load('../imagens/base.jpg').convert()
+timer1 = pygame.image.load('../imagens/timer1.jpg').convert()
+timer2 = pygame.image.load('../imagens/timer2.jpg').convert()
+timer3 = pygame.image.load('../imagens/timer3.jpg').convert()
+imagem_coordenada = pygame.image.load('../imagens/coordenada.jpg').convert()
 

@@ -1,3 +1,4 @@
+import sys
 import time
 import random as rd
 import cfg
@@ -72,6 +73,7 @@ def proximo_turno():
             if event.type == cfg.pygame.QUIT:
                 running = False
                 cfg.pygame.quit()
+                sys.exit()
 
             # Terminar turno
             if event.type == cfg.pygame.KEYDOWN:
@@ -124,14 +126,15 @@ def fim_do_jogo():
             # Botão de fechar
             if event.type == cfg.pygame.QUIT:
                 cfg.pygame.quit()
+                sys.exit()
                 
-
              # Botões do Teclado
             if event.type == cfg.pygame.KEYDOWN:
 
                 # Finalizar Jogo
                 if event.key == cfg.pygame.K_SPACE:
                     cfg.pygame.quit()
+                    sys.exit()
                     
         
                 # Reiniciar Jogo
