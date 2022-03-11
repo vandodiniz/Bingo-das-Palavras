@@ -29,9 +29,18 @@ while running:
                     funcoes.fim_do_jogo()
 
                 else:
-                    funcoes.proximo_turno()
+                    funcoes.mostra_coordenada()
                     print(controle.turno)
-        
+
+            # Repetir Turno
+            if event.key == cfg.pygame.K_v:
+                if controle.turno != 0:
+                    controle.turno -=1
+                    funcoes.mostra_coordenada()
+                else:
+                    funcoes.mostra_coordenada()
+                    controle.turno -=1
+                    
             # Reiniciar Game
             if event.key == cfg.pygame.K_r:
                 funcoes.reiniciar_jogo()

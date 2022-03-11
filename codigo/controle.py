@@ -9,3 +9,4 @@ objetos = ['Calculadora', 'Mesa', 'Sofá', 'Computador', 'TV', 'Geladeira', 'Cel
 extras = ['Estrela', 'Basquete', 'Futebol', 'LOL', 'Guerra', 'Nação', 'Médico', 'Xadrez', 'Livro']
 listas = [lugares, animais, comidas, objetos, extras]
 turno = 0
+

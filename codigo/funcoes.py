@@ -41,8 +41,48 @@ def sorteador():
             controle.escolhidas.append(palavra)
     rd.shuffle(controle.escolhidas)
     rd.shuffle(controle.coordenadas)
+    print(controle.coordenadas)
 
 def proximo_turno():
+    cfg.tela.fill((255, 255, 255))
+    
+    cfg.tela.blit(cfg.timer3, (0, 0))
+    cfg.pygame.display.flip() 
+    cfg.pygame.time.delay(1000)
+
+    cfg.tela.blit(cfg.timer2, (0, 0))
+    cfg.pygame.display.flip()
+    cfg.pygame.time.delay(1000)
+
+    cfg.tela.blit(cfg.timer1, (0, 0))
+    cfg.pygame.display.flip()
+    cfg.pygame.time.delay(1000)
+
+    cfg.tela.blit(cfg.imagem_coordenada, (0, 0))
+    coordenada = cfg.fonte2.render(controle.coordenadas[controle.turno], True, (0,0,0))
+    cfg.tela.blit(coordenada, (475,350))
+    cfg.pygame.display.flip()
+    
+    cfg.pygame.event.get().clear  
+    controle.turno +=1
+
+    turno_on = True
+    while turno_on:
+        
+        for event in cfg.pygame.event.get():
+           
+            # Botão de fechar
+            if event.type == cfg.pygame.QUIT:
+                running = False
+                cfg.pygame.quit()
+                sys.exit()
+
+            # Terminar turno
+            if event.type == cfg.pygame.KEYDOWN:
+                if event.key == cfg.pygame.K_SPACE:
+                    turno_on = False
+
+def mostra_coordenada():
     cfg.tela.fill((255, 255, 255))
     
     cfg.tela.blit(cfg.timer3, (0, 0))
@@ -63,23 +103,23 @@ def proximo_turno():
     cfg.pygame.display.flip()
     
     controle.turno +=1
+    cfg.pygame.event.get().clear  
 
-    turno_on = True    
-    while turno_on:
+    coordenada_on = True
+    while coordenada_on:
         
         for event in cfg.pygame.event.get():
            
             # Botão de fechar
             if event.type == cfg.pygame.QUIT:
-                running = False
                 cfg.pygame.quit()
                 sys.exit()
 
-            # Terminar turno
+            # Voltar pro tabuleiro turno
             if event.type == cfg.pygame.KEYDOWN:
                 if event.key == cfg.pygame.K_SPACE:
-                    turno_on = False
-            
+                    coordenada_on = False
+
 def reiniciar_jogo():
     sorteador()
     controle.turno = 0
