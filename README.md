@@ -78,9 +78,10 @@ Abra o executável na pasta `app`. Caso isso não funcione, com o `Python` e a b
 
 O seguinte tabuleiro irá aparecer em sua tela: 
 
-![image](https://user-images.githubusercontent.com/53914839/157489358-800b93c5-2f9a-4c8c-993f-4dad20decf7d.png)
+![image](https://user-images.githubusercontent.com/53914839/157916241-616d5cea-104e-43d2-a419-3453ed507b93.png)
 
 - A tecla ESPAÇO avança o turno. Apertá-la faz com que uma coordenada apareça na tela.
+- A tecla V mostra a coordenada novamente caso o jogador tenha a pulado sem querer ou a esquecido.
 - Cada botão do tabuleiro interage com seu mouse. Um clique nele o colore de verde, demonstrando um acerto. Dois cliques o colore de vermelho, demonstrando um erro. Três cliques o fazem voltar pro estado inicial.
 - A tecla R reinicia o jogo. Novas palavras são colocadas no tabuleiro e todos os botões voltam para o estado inicial.
 
