@@ -41,7 +41,6 @@ def sorteador():
             controle.escolhidas.append(palavra)
     rd.shuffle(controle.escolhidas)
     rd.shuffle(controle.coordenadas)
-    print(controle.coordenadas)
 
 def proximo_turno():
     cfg.tela.fill((255, 255, 255))

@@ -30,8 +30,7 @@ while running:
 
                 else:
                     funcoes.mostra_coordenada()
-                    print(controle.turno)
-
+                
             # Repetir Turno
             if event.key == cfg.pygame.K_v:
                 if controle.turno != 0:
